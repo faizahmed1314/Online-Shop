@@ -13,7 +13,7 @@
         <a asp-action="Create" class="btn btn-info"><i class="fas fa-plus"></i> New Product Type</a>
     </div>
 </div>
-<br/>
+<br />
 
 <div>
     <table class="table table-bordered table-striped">
@@ -27,15 +27,32 @@
         {
             <tr>
                 <td>
-                   @item.ProductType
+                    @item.ProductType
                 </td>
-                
-                    <partial name="_ButtonPartial" model="item.Id"/>
-                    
-                
+
+                <partial name="_ButtonPartial" model="item.Id" />
+
+
             </tr>
         }
 
     </table>
 </div>
+@section Scripts{
+    <script type="text/javascript">
+    $(function() {
+        var save = '@TempData["save"]';
+        var edit = '@TempData["Edit"]';
+        var error='@TempData["Delete"]';
+        if (save != '') {
+            alertify.success(save);
+        } else if (edit != '') {
+            alertify.success(edit);
+
+        } else if (error != '') {
+            alertify.error(error);
+        } 
+    } )
+    </script>
+}
 
