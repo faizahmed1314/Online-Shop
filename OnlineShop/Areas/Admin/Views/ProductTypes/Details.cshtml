@@ -1,0 +1,32 @@
+﻿@model OnlineShop.Models.ProductTypes
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1 class="text-info"> Product Type Details</h1>
+
+<form asp-action="Details" method="post">
+    <div class="p-4 rounded border">
+        <div asp-validation-summary="ModelOnly"></div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="ProductType"></label>
+            </div>
+            <div>
+                <input asp-for="ProductType" readonly="readonly" class="form-control" />
+            </div>
+            <span asp-validation-for="ProductType" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            
+            <a asp-action="Index" class="btn btn-info">Back To List</a>
+            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Edit</a>
+            @*<input type="submit" value="Submit" class="btn btn-success"/>*@
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
