@@ -4,7 +4,9 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using OnlineShop.Data;
 using OnlineShop.Models;
 
 namespace OnlineShop.Controllers
@@ -13,16 +15,20 @@ namespace OnlineShop.Controllers
     public class HomeController : Controller
     {
         
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+     
+        private ApplicationDbContext _db;
+       
+        public HomeController(ApplicationDbContext db)
         {
-            _logger = logger;
+            _db = db;
+          
         }
 
         public IActionResult Index()
         {
-            return View();
+            var data = _db.products.Include(x => x.productTypes).Include(x => x.specialTag).ToList();
+            return View(data);
+            
         }
 
         public IActionResult Privacy()

@@ -1,0 +1,92 @@
+﻿@model OnlineShop.Models.Product
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1 class="text-info">Delete Product </h1>
+
+<form asp-action="Delete" method="post" enctype="multipart/form-data">
+    <div class="p-4 rounded border row">
+        <div asp-validation-summary="ModelOnly"></div>
+        <input type="hidden" asp-for="Id" />
+        <div class="col-8">
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="ProductName"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="ProductName" class="form-control" readonly="readonly" />
+                </div>
+                <span asp-validation-for="ProductName" class="text-danger"></span>
+            </div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Price"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Price" class="form-control" readonly="readonly" />
+                </div>
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Color"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Color" class="form-control" readonly="readonly" />
+                </div>
+                <span asp-validation-for="Color" class="text-danger"></span>
+            </div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="ProductTypesId"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="ProductTypesId" class="form-control" readonly="readonly" />
+                    @*<select asp-for="ProductTypesId" asp-items="ViewBag.ProductTypeId" class="form-control"></select>*@
+                </div>
+                <span asp-validation-for="ProductTypesId" class="text-danger"></span>
+            </div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="SpecialTagId"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="SpecialTagId" class="form-control" readonly="readonly" />
+
+                    @*<select asp-for="SpecialTagId" asp-items="ViewBag.TagId" class="form-control"></select>*@
+
+                </div>
+                <span asp-validation-for="SpecialTagId" class="text-danger"></span>
+            </div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="IsAvailable"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="IsAvailable" class="" type="checkbox" readonly="readonly" />
+                </div>
+                <span asp-validation-for="IsAvailable" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-1"></div>
+        <div class="col-3">
+            <div>
+                <img src="~/@Model.Image" style="width:100%; border:1px solid #efefef; border-radius:5px" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <h2>Do you want to delete this product?</h2>
+            <input type="submit" value="Delete" class="btn btn-success" />
+            <a asp-action="Index" class="btn btn-info">Back To List</a>
+            
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
