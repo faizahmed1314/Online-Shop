@@ -71,14 +71,35 @@ namespace OnlineShop.Controllers
                 return NotFound();
             }
 
+            //Check if there exist in product in the session 
+
             products = HttpContext.Session.Get<List<Product>>("products");
             if (products == null)
             {
                 products = new List<Product>();
             }
             products.Add(product);
+
+            //Add product to the session
             HttpContext.Session.Set("products", products);
-            return View(product);
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpPost]
+        public ActionResult Remove(int? id)
+        {
+            List<Product> products = new List<Product>();
+            products = HttpContext.Session.Get<List<Product>>("products");
+            if (products != null)
+            {
+                var p = products.FirstOrDefault(c => c.Id == id);
+                if (p != null)
+                {
+                    products.Remove(p);
+                    HttpContext.Session.Set("products", products);
+                }
+            }
+            return RedirectToAction(nameof(Index));
         }
     }
 }
