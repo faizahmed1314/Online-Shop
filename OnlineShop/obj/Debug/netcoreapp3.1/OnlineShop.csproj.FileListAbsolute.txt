@@ -175,3 +175,4 @@ E:\Faiz\BITM\Asp.net Core\OnlineShop\OnlineShop\obj\Debug\netcoreapp3.1\Razor\Ar
 E:\Faiz\BITM\Asp.net Core\OnlineShop\OnlineShop\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Product\Edit.cshtml.g.cs
 E:\Faiz\BITM\Asp.net Core\OnlineShop\OnlineShop\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Product\Details.cshtml.g.cs
 E:\Faiz\BITM\Asp.net Core\OnlineShop\OnlineShop\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Product\Delete.cshtml.g.cs
+E:\Faiz\BITM\Asp.net Core\OnlineShop\OnlineShop\obj\Debug\netcoreapp3.1\Razor\Areas\Customer\Views\Home\Details.cshtml.g.cs
