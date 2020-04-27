@@ -9,6 +9,7 @@ using Microsoft.Extensions.Logging;
 using OnlineShop.Data;
 using OnlineShop.Models;
 using OnlineShop.Utility;
+using X.PagedList;
 
 namespace OnlineShop.Controllers
 {
@@ -25,9 +26,9 @@ namespace OnlineShop.Controllers
           
         }
 
-        public IActionResult Index()
+        public IActionResult Index(int? page)
         {
-            var data = _db.products.Include(x => x.productTypes).Include(x => x.specialTag).ToList();
+            var data = _db.products.Include(x => x.productTypes).Include(x => x.specialTag).ToList().ToPagedList(page??1,6);
             return View(data);
             
         }
@@ -86,10 +87,10 @@ namespace OnlineShop.Controllers
         }
 
         [HttpPost]
-        public ActionResult Remove(int? id)
+        public IActionResult Remove(int? id)
         {
-            List<Product> products = new List<Product>();
-            products = HttpContext.Session.Get<List<Product>>("products");
+
+            List<Product> products = HttpContext.Session.Get<List<Product>>("products");
             if (products != null)
             {
                 var p = products.FirstOrDefault(c => c.Id == id);
@@ -100,6 +101,32 @@ namespace OnlineShop.Controllers
                 }
             }
             return RedirectToAction(nameof(Index));
+        }
+        [ActionName("Remove")]
+        public IActionResult RemoveToCart(int? id)
+        {
+
+            List<Product> products = HttpContext.Session.Get<List<Product>>("products");
+            if (products != null)
+            {
+                var p = products.FirstOrDefault(c => c.Id == id);
+                if (p != null)
+                {
+                    products.Remove(p);
+                    HttpContext.Session.Set("products", products);
+                }
+            }
+            return RedirectToAction(nameof(Index));
+        }
+        public IActionResult Cart()
+        {
+             
+           List<Product> products = HttpContext.Session.Get<List<Product>>("products");
+            if (products == null)
+            {
+                products = new List<Product>();
+            }
+            return View(products);
         }
     }
 }

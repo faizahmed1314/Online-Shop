@@ -149,9 +149,6 @@ E:\Faiz\BITM\Asp.net Core\OnlineShop\OnlineShop\bin\Debug\netcoreapp3.1\ru\Micro
 E:\Faiz\BITM\Asp.net Core\OnlineShop\OnlineShop\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 E:\Faiz\BITM\Asp.net Core\OnlineShop\OnlineShop\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 E:\Faiz\BITM\Asp.net Core\OnlineShop\OnlineShop\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-E:\Faiz\BITM\Asp.net Core\OnlineShop\OnlineShop\obj\Debug\netcoreapp3.1\OnlineShop.csproj.CoreCompileInputs.cache
-E:\Faiz\BITM\Asp.net Core\OnlineShop\OnlineShop\obj\Debug\netcoreapp3.1\OnlineShop.MvcApplicationPartsAssemblyInfo.cs
-E:\Faiz\BITM\Asp.net Core\OnlineShop\OnlineShop\obj\Debug\netcoreapp3.1\OnlineShop.MvcApplicationPartsAssemblyInfo.cache
 E:\Faiz\BITM\Asp.net Core\OnlineShop\OnlineShop\obj\Debug\netcoreapp3.1\Razor\Areas\Customer\Views\Home\Index.cshtml.g.cs
 E:\Faiz\BITM\Asp.net Core\OnlineShop\OnlineShop\obj\Debug\netcoreapp3.1\Razor\Areas\Customer\Views\Home\Privacy.cshtml.g.cs
 E:\Faiz\BITM\Asp.net Core\OnlineShop\OnlineShop\obj\Debug\netcoreapp3.1\Razor\Areas\Customer\Views\_ViewImports.cshtml.g.cs
@@ -176,3 +173,15 @@ E:\Faiz\BITM\Asp.net Core\OnlineShop\OnlineShop\obj\Debug\netcoreapp3.1\Razor\Ar
 E:\Faiz\BITM\Asp.net Core\OnlineShop\OnlineShop\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Product\Details.cshtml.g.cs
 E:\Faiz\BITM\Asp.net Core\OnlineShop\OnlineShop\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Product\Delete.cshtml.g.cs
 E:\Faiz\BITM\Asp.net Core\OnlineShop\OnlineShop\obj\Debug\netcoreapp3.1\Razor\Areas\Customer\Views\Home\Details.cshtml.g.cs
+E:\Faiz\BITM\Asp.net Core\OnlineShop\OnlineShop\obj\Debug\netcoreapp3.1\Razor\Areas\Customer\Views\Home\Cart.cshtml.g.cs
+E:\Faiz\BITM\Asp.net Core\OnlineShop\OnlineShop\obj\Debug\netcoreapp3.1\Razor\Areas\Customer\Views\Order\Checkout.cshtml.g.cs
+E:\Faiz\BITM\Asp.net Core\OnlineShop\OnlineShop\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+E:\Faiz\BITM\Asp.net Core\OnlineShop\OnlineShop\bin\Debug\netcoreapp3.1\Microsoft.DotNet.PlatformAbstractions.dll
+E:\Faiz\BITM\Asp.net Core\OnlineShop\OnlineShop\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
+E:\Faiz\BITM\Asp.net Core\OnlineShop\OnlineShop\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+E:\Faiz\BITM\Asp.net Core\OnlineShop\OnlineShop\bin\Debug\netcoreapp3.1\X.PagedList.dll
+E:\Faiz\BITM\Asp.net Core\OnlineShop\OnlineShop\bin\Debug\netcoreapp3.1\X.PagedList.Mvc.Core.dll
+E:\Faiz\BITM\Asp.net Core\OnlineShop\OnlineShop\bin\Debug\netcoreapp3.1\X.PagedList.Web.Common.dll
+E:\Faiz\BITM\Asp.net Core\OnlineShop\OnlineShop\obj\Debug\netcoreapp3.1\OnlineShop.csproj.CoreCompileInputs.cache
+E:\Faiz\BITM\Asp.net Core\OnlineShop\OnlineShop\obj\Debug\netcoreapp3.1\OnlineShop.MvcApplicationPartsAssemblyInfo.cs
+E:\Faiz\BITM\Asp.net Core\OnlineShop\OnlineShop\obj\Debug\netcoreapp3.1\OnlineShop.MvcApplicationPartsAssemblyInfo.cache
