@@ -20,21 +20,25 @@ namespace OnlineShop.Areas.Customer.Controllers
         {
             return View();
         }
-        public async Task< IActionResult> Create()
+        public  IActionResult Create()
         {
             return View();
         }
         [HttpPost]
         public async Task<IActionResult> Create(ApplicationUser user)
         {
-            var result = await _userManager.CreateAsync(user);
-            if (result.Succeeded)
+            if (ModelState.IsValid)
             {
-
-            }
-            foreach(var error in result.Errors)
-            {
-                ModelState.AddModelError(string.Empty, error.Description);
+                var result = await _userManager.CreateAsync(user, user.PasswordHash);
+                if (result.Succeeded)
+                {
+                    TempData["save"] = "User create successfully";
+                    return RedirectToAction(nameof(Index));
+                }
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError(string.Empty, error.Description);
+                }
             }
             return View();
         }

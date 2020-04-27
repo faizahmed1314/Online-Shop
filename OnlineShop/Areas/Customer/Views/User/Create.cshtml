@@ -5,9 +5,9 @@
 
 <h1 class="text-info">Create User </h1>
 
-<form asp-action="Create" method="post" enctype="multipart/form-data">
+<form asp-action="Create" method="post" id="user-form" enctype="multipart/form-data">
     <div class="p-4 rounded border">
-        <div asp-validation-summary="ModelOnly"></div>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="form-group row">
             <div class="col-2">
                 <label asp-for="FirstName"></label>
@@ -56,5 +56,45 @@
 
 @section Scripts{
     @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#user-form").validate({
+            rules: {
+                FirstName: {
+                    required: true,
+
+                },
+                LastName: {
+                    required: true,
+
+                },
+                UserName: {
+                    required: true,
+                    minlength: 5
+                },
+                PasswordHash: {
+                    required: true,
+                    minlength: 6
+                },
+
+            },
+            messages: {
+                FirstName: "Please enter your first name!",
+                LastName: "Please enter your last name!",
+                UserName: {
+                    required: "Please enter user name",
+                    minlength: "User name should be at least 5 characters"
+                },
+                PasswordHash: {
+                    required: "Please enter your password",
+
+                    minlength: "Password should be at least 6 alphanumeric characters"
+                },
+
+            }
+        });
+    });
+</script>
 }
 

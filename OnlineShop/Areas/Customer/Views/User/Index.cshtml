@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+@section Scripts{
+    <script type="text/javascript">
+    $(function() {
+        var save = '@TempData["save"]';
+        var edit = '@TempData["Edit"]';
+        var error='@TempData["Delete"]';
+        if (save != '') {
+            alertify.success(save);
+        } else if (edit != '') {
+            alertify.success(edit);
+
+        } else if (error != '') {
+            alertify.error(error);
+        }
+    } )
+    </script>
+}
