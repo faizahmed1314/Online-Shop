@@ -226,3 +226,9 @@ E:\Faiz\BITM\Asp.net Core\OnlineShop\OnlineShop\obj\Debug\netcoreapp3.1\OnlineSh
 E:\Faiz\BITM\Asp.net Core\OnlineShop\OnlineShop\obj\Debug\netcoreapp3.1\OnlineShop.pdb
 E:\Faiz\BITM\Asp.net Core\OnlineShop\OnlineShop\obj\Debug\netcoreapp3.1\OnlineShop.genruntimeconfig.cache
 E:\Faiz\BITM\Asp.net Core\OnlineShop\OnlineShop\obj\Debug\netcoreapp3.1\Razor\Areas\Customer\Views\User\Index.cshtml.g.cs
+E:\Faiz\BITM\Asp.net Core\OnlineShop\OnlineShop\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_PartialView.cshtml.g.cs
+E:\Faiz\BITM\Asp.net Core\OnlineShop\OnlineShop\obj\Debug\netcoreapp3.1\Razor\Areas\Customer\Views\User\Edit.cshtml.g.cs
+E:\Faiz\BITM\Asp.net Core\OnlineShop\OnlineShop\obj\Debug\netcoreapp3.1\Razor\Areas\Customer\Views\User\Details.cshtml.g.cs
+E:\Faiz\BITM\Asp.net Core\OnlineShop\OnlineShop\obj\Debug\netcoreapp3.1\Razor\Areas\Customer\Views\User\Lockout.cshtml.g.cs
+E:\Faiz\BITM\Asp.net Core\OnlineShop\OnlineShop\obj\Debug\netcoreapp3.1\Razor\Areas\Customer\Views\User\Active.cshtml.g.cs
+E:\Faiz\BITM\Asp.net Core\OnlineShop\OnlineShop\obj\Debug\netcoreapp3.1\Razor\Areas\Customer\Views\User\Delete.cshtml.g.cs
