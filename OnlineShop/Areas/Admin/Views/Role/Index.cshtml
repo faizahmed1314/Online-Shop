@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="row">
+    <div class="col-6">
+        <h2 class="text-info">
+            Role  List
+        </h2>
+    </div>
+    <div class="col-6">
+        <a asp-action="Create" class="btn btn-info"><i class="fas fa-plus"></i> New Role</a>
+    </div>
+</div>
+<br />
+<div>
+    <table class="table table-bordered table-striped" id="myTable">
+        <thead>
+            <tr class="table-info">
+                <th>
+                    Name
+                </th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in ViewBag.Roles)
+            {
+                <tr>
+                    <td>
+                        @item.Name
+                    </td>
+                    
+                    <td style="width:150px">
+                        <div class="btn-group">
+                            <a asp-action="Edit" class="btn btn-primary" asp-route-id="@item.Id"><i class="fas fa-edit"></i></a>
+                            <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.Id"><i class="fas fa-trash-alt"></i></a>
+                        </div>
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+@section Scripts{
+    <script type="text/javascript">
+
+        $(function () {
+            var save = '@TempData["save"]';
+            var edit = '@TempData["Edit"]';
+            var remove = '@TempData["Delete"]';
+
+
+            if (save != '') {
+                alertify.success(save);
+            } else if (edit != '') {
+                alertify.success(edit);
+
+            } else if (remove != '') {
+                alertify.error(remove);
+            }
+
+        });
+    </script>
+}
+
+
+
