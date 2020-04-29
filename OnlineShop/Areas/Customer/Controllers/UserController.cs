@@ -39,6 +39,8 @@ namespace OnlineShop.Areas.Customer.Controllers
                 var result = await _userManager.CreateAsync(user, user.PasswordHash);
                 if (result.Succeeded)
                 {
+                    //setting user role by default as a normal user
+                    var setRoleByDefault = await _userManager.AddToRoleAsync(user, "User");
                     TempData["save"] = "User create successfully";
                     return RedirectToAction(nameof(Index));
                 }
