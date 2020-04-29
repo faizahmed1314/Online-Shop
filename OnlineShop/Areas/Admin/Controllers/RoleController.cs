@@ -123,7 +123,8 @@ namespace OnlineShop.Areas.Admin.Controllers
 
         public IActionResult Assign()
         {
-            var userlist = _db.Users.ToList();
+            //get all userlist which are active or filter the inactive user
+            var userlist = _db.Users.Where(c=>c.LockoutEnd<DateTime.Now||c.LockoutEnd==null).ToList();
             ViewBag.UserId = new SelectList(userlist, "Id", "UserName");
             var rolelist = _roleManager.Roles.ToList();
             ViewBag.RoleId = new SelectList(rolelist, "Name", "Name");
@@ -133,13 +134,41 @@ namespace OnlineShop.Areas.Admin.Controllers
         public async Task<IActionResult> Assign(UserRoleVm userRole)
         {
             var user = _db.applicationUsers.FirstOrDefault(c => c.Id == userRole.UserId);
+            var checkIsRoleAssigned =await _userManager.IsInRoleAsync(user, userRole.RoleId);
+            if (checkIsRoleAssigned)
+            {
+
+                ViewBag.Message = "This user role is already assigned";
+                var userlist = _db.Users.Where(c => c.LockoutEnd < DateTime.Now || c.LockoutEnd == null).ToList();
+                ViewBag.UserId = new SelectList(userlist, "Id", "UserName");
+                var rolelist = _roleManager.Roles.ToList();
+                ViewBag.RoleId = new SelectList(rolelist, "Name", "Name");
+                return View();
+            }
             var role = await _userManager.AddToRoleAsync(user, userRole.RoleId);
             if (role.Succeeded)
             {
                 TempData["save"] = "Role assigned successfully";
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(AssignUserRole));
             }
             return View();
+        }
+
+        public IActionResult AssignUserRole()
+        {
+
+            //using linq for getting user role value from AspNetUserRole table
+            var result = from ur in _db.UserRoles
+                         join r in _db.Roles on ur.RoleId equals r.Id
+                         join u in _db.applicationUsers on ur.UserId equals u.Id
+                         select new UserRoleMapping
+                         {
+                             UserId = ur.UserId,
+                             RoleId=ur.RoleId,
+                             UserName=u.UserName,
+                             RoleName=r.Name
+                         };
+            return View(result.ToList());
         }
     }
 }

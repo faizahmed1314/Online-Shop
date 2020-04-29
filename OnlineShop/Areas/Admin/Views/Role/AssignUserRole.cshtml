@@ -1,0 +1,72 @@
+﻿@model List<OnlineShop.Areas.Admin.Models.UserRoleMapping>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="row">
+    <div class="col-6">
+        <h2 class="text-info">
+            Assigned User Role
+        </h2>
+    </div>
+   
+        <div class="col-6">
+            <a asp-action="Assign" class="btn btn-info"><i class="fas fa-plus"></i> Create New User Role</a>
+        </div>
+    
+</div>
+<br />
+<div>
+    <table class="table table-bordered table-striped" id="myTable">
+        <thead>
+            <tr class="table-info">
+                <th>
+                    User Name
+                </th>
+                <th>
+                    Role Name
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @item.UserName
+                </td>
+
+                <td>
+                    @item.RoleName
+                </td>
+               
+
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+@section Scripts{
+    <script type="text/javascript">
+
+        $(function () {
+            var save = '@TempData["save"]';
+            var edit = '@TempData["Edit"]';
+            var remove = '@TempData["Delete"]';
+
+
+            if (save != '') {
+                alertify.success(save);
+            } else if (edit != '') {
+                alertify.success(edit);
+
+            } else if (remove != '') {
+                alertify.error(remove);
+            }
+
+        });
+    </script>
+}
+
+
+
