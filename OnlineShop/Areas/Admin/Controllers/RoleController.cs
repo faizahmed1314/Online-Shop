@@ -4,6 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using OnlineShop.Areas.Admin.Models;
+using OnlineShop.Data;
 
 namespace OnlineShop.Areas.Admin.Controllers
 {
@@ -11,9 +14,13 @@ namespace OnlineShop.Areas.Admin.Controllers
     public class RoleController : Controller
     {
         RoleManager<IdentityRole> _roleManager;
-        public RoleController(RoleManager<IdentityRole> roleManager)
+        UserManager<IdentityUser> _userManager;
+        ApplicationDbContext _db;
+        public RoleController(RoleManager<IdentityRole> roleManager,ApplicationDbContext db,UserManager<IdentityUser> userManager)
         {
             _roleManager = roleManager;
+            _userManager = userManager;
+            _db = db;
         }
         public IActionResult Index()
         {
@@ -109,6 +116,27 @@ namespace OnlineShop.Areas.Admin.Controllers
             if (result.Succeeded)
             {
                 TempData["Delete"] = "Role deleted successfully";
+                return RedirectToAction(nameof(Index));
+            }
+            return View();
+        }
+
+        public IActionResult Assign()
+        {
+            var userlist = _db.Users.ToList();
+            ViewBag.UserId = new SelectList(userlist, "Id", "UserName");
+            var rolelist = _roleManager.Roles.ToList();
+            ViewBag.RoleId = new SelectList(rolelist, "Name", "Name");
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> Assign(UserRoleVm userRole)
+        {
+            var user = _db.applicationUsers.FirstOrDefault(c => c.Id == userRole.UserId);
+            var role = await _userManager.AddToRoleAsync(user, userRole.RoleId);
+            if (role.Succeeded)
+            {
+                TempData["save"] = "Role assigned successfully";
                 return RedirectToAction(nameof(Index));
             }
             return View();
